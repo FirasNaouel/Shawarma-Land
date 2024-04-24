@@ -1,0 +1,3 @@
+/home/firas/Desktop/clion/cmake-build-debug/CMakeFiles/clion.dir
+/home/firas/Desktop/clion/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/firas/Desktop/clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
