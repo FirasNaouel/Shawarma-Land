@@ -11,7 +11,7 @@ int main() {
     cout << game.getName();
 }
 
-string storyline() {//haha nice try
+string storyline() {
     fstream file("list.txt", ios::in);
     string story;
     string line;
