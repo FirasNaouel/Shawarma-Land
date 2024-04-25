@@ -2,15 +2,6 @@
 
 using namespace std;
 
-string storyline();
-
-int main() {
-    Game game("Shawarma Land", storyline());
-    cout << game.getStory();
-    cout << endl;
-    cout << game.getName();
-}
-
 string storyline() {
     fstream file("list.txt", ios::in);
     string story;
@@ -19,4 +10,11 @@ string storyline() {
         story += line + "\n";
     }
     return story;
+}
+
+int main() {
+    Game game("Shawarma Land", storyline());
+    cout << game.getStory();
+    cout << endl;
+    cout << game.getName();
 }
