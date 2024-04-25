@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string storyline() {
+string storyline() {//you are gay
     fstream file("list.txt", ios::in);
     string story;
     string line;
