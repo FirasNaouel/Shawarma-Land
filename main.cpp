@@ -9,7 +9,7 @@ string storyline() {
     while(getline(file, line)) {
         story += line + "\n";
     }
-    return story;
+    return story;//YOU ARE GAY
 }
 
 int main() {
