@@ -1,5 +1,4 @@
 #include "program.h"
-#include <stdlib.h> 
 using namespace std;
 
 void intro(Game& game, Program& backend) {
