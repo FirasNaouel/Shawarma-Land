@@ -1,20 +1,15 @@
-#include "game.h"
-
+#include "program.h"
 using namespace std;
 
-string storyline() {
-    fstream file("list.txt", ios::in);
-    string story;
-    string line;
-    while(getline(file, line)) {
-        story += line + "\n";
-    }
-    return story;
+void intro(Game& game, Program& backend) {
+    system("clear");
+    cout << game.getStory() << endl;
+    cout << "Welcome to " << backend.boldON() << game.getName() << backend.boldOFF() << endl;
 }
 
 int main() {
-    Game game("Shawarma Land", storyline());
-    cout << game.getStory();
-    cout << endl;
-    cout << game.getName();
+    Program backend;
+    Game game;
+    game.customize(backend.yesNo("Would you like to customize the game? (y/n)", '-', 'y', 'n'));
+    intro(game, backend);
 }
