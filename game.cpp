@@ -3,7 +3,8 @@
 using namespace std;
 
 Game::Game() {
-    
+    name = "Player";
+    story = "";
 }
 
 Game::Game(string n, string s) {
