@@ -24,7 +24,7 @@ bool Game::getCleared() {
 }
 
 void Game::setName(string n) {
-    name = n;
+    this->name = n;
 }
 
 void Game::setStory(string s) {
