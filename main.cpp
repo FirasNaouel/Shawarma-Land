@@ -5,15 +5,11 @@ using namespace std;
 void intro(Game& game) {
     Program::clearScreen();
     cout << game.getStory() << endl;
-    cout << endl << "Welcome to " << Program::bold() << game.getName() << Program::boldOFF() << endl;
+    cout << endl << "Welcome to " << Program::white() << game.getName() << Program::colourOFF() << endl;
 }
 
 void intro(Player& player) {
-    cout << "Character: " << Program::bold() << player.getName() << Program::boldOFF() << endl;
-    cout << "Emoji: " << player.getEmoji() << endl;
-    cout << "Health: " << player.getHealth() << endl;
-    cout << "Speed: " << player.getSpeed() << endl;
-    cout << "Strength: " << player.getStrength() << endl;
+    player.playerInfo();
 }
 
 int main() {
