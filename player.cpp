@@ -22,3 +22,11 @@ void Player::customize(bool c) {
         emoji = emojis[Program::question(0, 4)];
     }
 }
+
+void Player::playerInfo() {
+    cout << "Name: " << Program::white() << name << Program::colourOFF() << endl;
+    cout << "Emoji: " << emoji << endl;
+    cout << "Health: " << Program::green() << health << " HP" << Program::colourOFF() << endl;
+    cout << "Speed: " << Program::cyan() << speed << " SP" << Program::colourOFF() << endl;
+    cout << "Strength: " << Program::red() << strength << " ATK" << Program::colourOFF() << endl;
+}
