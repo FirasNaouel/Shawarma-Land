@@ -26,12 +26,28 @@ int Program::question(int l, int h) {
     return input;
 }
 
-string Program::bold() {
-    return "\e[1m";
+string Program::white() {
+    return "\033[1;37m";
 }
 
-string Program::boldOFF() {
-    return "\e[0m";
+string Program::cyan() {
+    return "\033[1;36m";
+}
+
+string Program::yellow() {
+    return "\033[1;33m";
+}
+
+string Program::green() {
+    return "\033[1;32m";
+}
+
+string Program::red() {
+    return "\033[1;31m";
+}
+
+string Program::colourOFF() {
+    return "\u001B[0m";
 }
 
 void Program::clearScreen() {
