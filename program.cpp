@@ -18,7 +18,11 @@ bool Program::question(string q, char y, char n) {
 int Program::question(int l, int h) {
     int input;
     do {
-        cin >> input;
+        while (!(cin >> input)) {
+        	cout << "Invalid input! Try again: ";
+        	cin.clear();
+        	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
         if (input < l || input > h) {
             cout << "Invalid input. Please enter a digit from " << l << " to " << h << endl;
         }
