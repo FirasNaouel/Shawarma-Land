@@ -1,15 +1,26 @@
-#include "program.h"
+#include "player.h"
+
 using namespace std;
 
-void intro(Game& game, Program& backend) {
-    system("clear");
+void intro(Game& game) {
+    Program::clearScreen();
     cout << game.getStory() << endl;
-    cout << "Welcome to " << backend.boldON() << game.getName() << backend.boldOFF() << endl;
+    cout << endl << "Welcome to " << Program::white() << game.getName() << Program::colourOFF() << endl;
+}
+
+void intro(Player& player) {
+    player.playerInfo();
 }
 
 int main() {
-    Program backend;
     Game game;
-    game.customize(backend.yesNo("Would you like to customize the game? (y/n)", '-', 'y', 'n'));
-    intro(game, backend);
+    Player player;
+    while(!game.getCleared()) {
+        intro(game);
+        Program::enterContinue();
+        Program::clearScreen();
+        player.customize(Program::question("Would you like to customize your character? (y/n)", 'y', 'n'));
+        intro(player);
+        game.setCleared(true);
+    }
 }
