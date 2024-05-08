@@ -20,7 +20,7 @@ string Game::getStory() {
     return story;
 }
 
-bool Game::getCleared() {
+bool Game::getCleared() const {
     return cleared;
 }
 

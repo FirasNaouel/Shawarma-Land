@@ -6,6 +6,12 @@ class Program {
 public:
     static bool question(string, char, char);
     static int question(int, int);
+    static string white();
+    static string cyan();
+    static string yellow();
+    static string green();
+    static string red();
+    static string colourOFF();
     static string bold();
     static string boldOFF();
     static void clearScreen();

@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -11,6 +14,8 @@ public:
     Game();
     string getName();
     string getStory();
-    bool getCleared();
+    bool getCleared() const;
     void setCleared(bool);
 };
+
+#endif

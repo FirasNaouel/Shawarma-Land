@@ -23,7 +23,7 @@ void Player::customize(bool c) {
     }
 }
 
-void Player::playerInfo() {
+void Player::playerInfo() const {
     cout << "Name: " << Program::white() << name << Program::colourOFF() << endl;
     cout << "Emoji: " << emoji << endl;
     cout << "Health: " << Program::green() << health << " HP" << Program::colourOFF() << endl;
