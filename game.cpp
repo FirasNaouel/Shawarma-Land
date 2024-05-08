@@ -7,7 +7,7 @@ Game::Game() {
     stringstream buffer;
     buffer << file.rdbuf();
     file.close();
-    
+
     name = "Shawarma Land";
     story = buffer.str();
 }

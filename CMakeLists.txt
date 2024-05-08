@@ -5,4 +5,10 @@ set(CMAKE_CXX_STANDARD 26)
 
 add_executable(clion main.cpp
         game.cpp
-        game.h)
+        game.h
+        program.cpp
+        coa.h
+        coa.cpp
+        program.h
+        player.h
+        player.cpp)

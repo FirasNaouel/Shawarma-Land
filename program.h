@@ -3,7 +3,7 @@
 using namespace std;
 
 class Program {
-    public:
+public:
     static bool question(string, char, char);
     static int question(int, int);
     static string bold();

@@ -19,9 +19,9 @@ int Program::question(int l, int h) {
     int input;
     do {
         while (!(cin >> input)) {
-        	cout << "Invalid input! Try again: ";
-        	cin.clear();
-        	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input! Try again: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         if (input < l || input > h) {
             cout << "Invalid input. Please enter a digit from " << l << " to " << h << endl;
