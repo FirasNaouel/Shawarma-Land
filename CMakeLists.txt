@@ -11,4 +11,6 @@ add_executable(clion main.cpp
         coa.cpp
         program.h
         player.h
-        player.cpp)
+        player.cpp
+        timer.cpp
+        timer.h)

@@ -79,6 +79,12 @@ build CMakeFiles/clion.dir/player.cpp.o: CXX_COMPILER__clion_unscanned_Debug /ho
   OBJECT_DIR = CMakeFiles/clion.dir
   OBJECT_FILE_DIR = CMakeFiles/clion.dir
 
+build CMakeFiles/clion.dir/timer.cpp.o: CXX_COMPILER__clion_unscanned_Debug /home/firas/Desktop/clion/timer.cpp || cmake_object_order_depends_target_clion
+  DEP_FILE = CMakeFiles/clion.dir/timer.cpp.o.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/clion.dir
+  OBJECT_FILE_DIR = CMakeFiles/clion.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target clion
@@ -87,7 +93,7 @@ build CMakeFiles/clion.dir/player.cpp.o: CXX_COMPILER__clion_unscanned_Debug /ho
 #############################################
 # Link the executable clion
 
-build clion: CXX_EXECUTABLE_LINKER__clion_Debug CMakeFiles/clion.dir/main.cpp.o CMakeFiles/clion.dir/game.cpp.o CMakeFiles/clion.dir/program.cpp.o CMakeFiles/clion.dir/coa.cpp.o CMakeFiles/clion.dir/player.cpp.o
+build clion: CXX_EXECUTABLE_LINKER__clion_Debug CMakeFiles/clion.dir/main.cpp.o CMakeFiles/clion.dir/game.cpp.o CMakeFiles/clion.dir/program.cpp.o CMakeFiles/clion.dir/coa.cpp.o CMakeFiles/clion.dir/player.cpp.o CMakeFiles/clion.dir/timer.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/clion.dir
   POST_BUILD = :
