@@ -5,11 +5,13 @@ using namespace std;
 bool Program::question(string q, char y, char n) {
     char input;
     do {
-        cout << q << endl;
+        cout << q;
         cin >> input;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         input = tolower(input);
         if (input != y && input != n) {
             cout << "Invalid input. Please enter '" << y << "' for Yes or '" << n << "' for No." << endl;
+            cout << "Input: ";
         }
     } while (input != y && input != n);
     return (input == y);
@@ -18,13 +20,20 @@ bool Program::question(string q, char y, char n) {
 int Program::question(int l, int h) {
     int input;
     do {
+        cout << "Enter action: ";
         while (!(cin >> input)) {
-        	cout << "Invalid input! Try again: ";
-        	cin.clear();
-        	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid Input! (only integer)" << endl;
+            cout << "Enter action: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         if (input < l || input > h) {
-            cout << "Invalid input. Please enter a digit from " << l << " to " << h << endl;
+            if (l == h) {
+                cout << "Invalid Integer! (only " << l << ")" << endl;
+            } else {
+                cout << "Invalid Integer! (between " << l << " and " << h << ")" << endl;
+            }
         }
     } while (input < l || input > h);
     return input;
