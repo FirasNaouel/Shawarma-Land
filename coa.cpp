@@ -6,10 +6,6 @@ COA::COA() {
     
 }
 
-// COA::COA(string n, int h, int sp, int st) {
-
-// }
-
 string COA::getName() {
     return name;
 }
