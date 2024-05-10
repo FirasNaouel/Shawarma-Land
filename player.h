@@ -1,17 +1,13 @@
-#include "game.h"
-#pragma once
+#include "coa.h"
+
 using namespace std;
 
-class Program {
+class Player : public COA {
+    private:
+    static const int emojiSize = 5;
+    string emojis[emojiSize] = {"\U0001F600", "\U0001F606", "\U0001F602", "\U0001F911", "\U0001F607"};
     public:
-    static bool question(string, char, char);
-    static int question(int, int);
-    static string white();
-    static string cyan();
-    static string yellow();
-    static string green();
-    static string red();
-    static string colourOFF();
-    static void clearScreen();
-    static void enterContinue();
+    Player();
+    void customize(bool);
+    void playerInfo();
 };
