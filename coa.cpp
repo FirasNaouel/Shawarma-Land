@@ -3,7 +3,7 @@
 using namespace std;
 
 COA::COA() {
-    
+
 }
 
 string COA::getName() {

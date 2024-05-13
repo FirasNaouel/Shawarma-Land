@@ -22,4 +22,3 @@ public:
     virtual void setStrength(int);
     virtual void setEmoji(string);
 };
-

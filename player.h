@@ -11,3 +11,4 @@ class Player : public COA {
     void customize(bool);
     void playerInfo();
 };
+

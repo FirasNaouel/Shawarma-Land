@@ -24,6 +24,7 @@ int Program::question(int l, int h) {
         while (!(cin >> input)) {
             cout << "Invalid Input! (only integer)" << endl;
             cout << "Enter action: ";
+
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
