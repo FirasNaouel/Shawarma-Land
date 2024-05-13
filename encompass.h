@@ -1,5 +1,0 @@
-#include "game.cpp"
-#include "program.cpp"
-#include "coa.cpp"
-#include "player.cpp"
-#include "menu.cpp"
