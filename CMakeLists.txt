@@ -12,5 +12,6 @@ add_executable(clion main.cpp
         program.h
         player.h
         player.cpp
-        timer.cpp
-        timer.h)
+        room.cpp
+        room.h
+)

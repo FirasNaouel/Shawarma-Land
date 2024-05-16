@@ -9,6 +9,6 @@ class Player : public COA {
     public:
     Player();
     void customize(bool);
-    void playerInfo();
+    void playerInfo() const;
 };
 
