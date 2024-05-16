@@ -11,11 +11,11 @@ Player::Player() : COA() {
 }
 
 void Player::customize(bool c) {
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     if (c) {
-        cout << "What would you like to call your character?" << endl;
+        cout << "Enter your character's name: ";
         getline(cin, name);
-        cout << "What would you like to set as your emoji? (Enter digit corresponding to emoji)" << endl;
+        
+        cout << "Select an emblem for your journey (Enter corresponding number):" << endl;
         for (int i = 0; i < emojiSize; i++) {
             cout << i << ": " << emojis[i] << endl;
         }

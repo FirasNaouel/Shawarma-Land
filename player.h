@@ -1,22 +1,14 @@
 #include "coa.h"
-#include "game.h"
-#pragma once
+
 using namespace std;
-const int emojiSize = 4;
 
-class Player : public COA{
-private:
-    string name;
-    string emoji;
-    int health;
-    int speed;
-    int strength;
-    string emojis[4];
-
-public:
+class Player : public COA {
+    private:
+    static const int emojiSize = 5;
+    string emojis[emojiSize] = {"\U0001F600", "\U0001F606", "\U0001F602", "\U0001F911", "\U0001F607"};
+    public:
     Player();
-
-    void customize(bool c);
-
-    void playerInfo() const;
+    void customize(bool);
+    void playerInfo();
 };
+

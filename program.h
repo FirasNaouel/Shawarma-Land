@@ -12,8 +12,6 @@ public:
     static string green();
     static string red();
     static string colourOFF();
-    static string bold();
-    static string boldOFF();
     static void clearScreen();
     static void enterContinue();
 };
