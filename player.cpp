@@ -8,6 +8,11 @@ Player::Player() : COA() {
     health = 1;
     speed = 2;
     strength = 3;
+    items[0] = new Sword();
+    items[1] = new Sword("Shawarmaster Blade", 30, 0.8, true);
+    items[2] = new Sword("Hummus Havoc", 28, 0.9, false);
+    items[3] = new Sword("Kebab Kutter", 35, 0.75, false);
+    itemEquipped = items[0];
 }
 
 void Player::customize(bool c) {
@@ -29,4 +34,25 @@ void Player::playerInfo() {
     cout << "Health: " << Program::green() << health << " HP" << Program::colourOFF() << endl;
     cout << "Speed: " << Program::cyan() << speed << " SP" << Program::colourOFF() << endl;
     cout << "Strength: " << Program::red() << strength << " ATK" << Program::colourOFF() << endl;
+    cout << "Sword: " << Program::white() << itemEquipped->getName() << Program::colourOFF() << endl;
+}
+
+Item* Player::getItem(int index) {
+    if (index >= 0 && index < 2) {
+        return items[index];
+    } else {
+        return nullptr;
+    }
+}
+
+Item* Player::getItemEquipped() {
+    return itemEquipped;
+}
+
+void Player::setItemEquipped(Item* newItem) {
+    itemEquipped = newItem;
+}
+
+int Player::getBackpackSize() {
+    return backpackSize;
 }
