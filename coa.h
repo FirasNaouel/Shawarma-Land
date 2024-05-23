@@ -1,5 +1,4 @@
-#include "program.h"
-
+#include <bits/stdc++.h>
 using namespace std;
 
 // COA does not stand for "Canadian Orthopaedic Association," but rather "Clumps of Atoms."
@@ -12,6 +11,7 @@ protected:
     int strength;
 public:
     COA();
+    COA(string, string, int, int, int);
     virtual string getName();
     virtual int getHealth();
     virtual int getSpeed();
