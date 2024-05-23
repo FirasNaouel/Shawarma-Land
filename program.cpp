@@ -1,5 +1,4 @@
 #include "program.h"
-
 using namespace std;
 
 bool Program::question(string q, char y, char n) {
@@ -24,7 +23,6 @@ int Program::question(int l, int h) {
         while (!(cin >> input)) {
             cout << "Invalid Input! (only integer)" << endl;
             cout << "Enter action: ";
-
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
@@ -71,4 +69,5 @@ void Program::clearScreen() {
 void Program::enterContinue() {
     cout << endl << "Press Enter to Continue";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    clearScreen();
 }
