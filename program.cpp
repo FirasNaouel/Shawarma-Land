@@ -71,3 +71,35 @@ void Program::enterContinue() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     clearScreen();
 }
+
+void alpha(string items[], int length, int start, int mid, int end) {
+    string temp[length];
+    int pos1 = start;
+    int pos2 = mid + 1;
+    int spot = start;
+    while (!(pos1 > mid && pos2 > end)) {
+        if ((pos1 > mid) || ((pos2 <= end) && (items[pos2] < items[pos1]))) {
+            temp[spot] = items[pos2];
+            pos2 += 1;
+        } else {
+            temp[spot] = items[pos1];
+            pos1 += 1;
+        }
+        spot += 1;
+    }
+
+/* copy values from temp back to items */
+    for (int i = start; i <= end; i++) {
+        items[i] = temp[i];
+    }
+}
+
+
+void alphaSort(string items[], int start, int end, int length) {
+    if (start < end) {
+        int mid = (start + end) / 2;
+        alphaSort(items, start, mid, length);
+        alphaSort(items, mid + 1, end, length);
+        alpha(items, length, start, mid, end);
+    }
+}
