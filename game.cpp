@@ -59,7 +59,6 @@ void Game::menu() {
             backpack();
             break;
         case 3:
-            room();
             break;
         case 4:
             credits();
