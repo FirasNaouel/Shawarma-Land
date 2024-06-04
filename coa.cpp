@@ -1,9 +1,8 @@
 #include "coa.h"
-
 using namespace std;
 
 COA::COA() {
-
+    
 }
 
 string COA::getName() {

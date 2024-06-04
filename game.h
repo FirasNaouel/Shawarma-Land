@@ -1,16 +1,24 @@
 #include <bits/stdc++.h>
-
+#include "program.h"
+#include "player.h"
+#include "menu.h"
+#include "room.h"
 using namespace std;
 
 class Game {
 private:
     string name;
     string story;
-    bool cleared;
+    Player* p;
 public:
     Game();
-    string getName();
-    string getStory();
-    bool getCleared();
-    void setCleared(bool);
+    ~Game();
+    void startGame();
+    void intro();
+    void intro(Player& p);
+    void tutorial();
+    void menu(); 
+    void profile(); 
+    void backpack(); 
+    void credits(); 
 };

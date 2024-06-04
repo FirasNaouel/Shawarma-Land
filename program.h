@@ -1,9 +1,9 @@
-#include "game.h"
+#include <bits/stdc++.h>
 #pragma once
 using namespace std;
 
 class Program {
-public:
+    public:
     static bool question(string, char, char);
     static int question(int, int);
     static string white();
@@ -14,4 +14,6 @@ public:
     static string colourOFF();
     static void clearScreen();
     static void enterContinue();
+    static void alpha(string, int, int, int, int);
+    static void alphaSort(string, int, int, int);
 };
