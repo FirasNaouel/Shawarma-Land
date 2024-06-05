@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #include "program.h"
 #include "player.h"
-#include "menu.h"
 #include "room.h"
 using namespace std;
 
@@ -16,7 +15,7 @@ public:
     void startGame();
     void intro();
     void intro(Player& p);
-    void menu(); 
+    void displayMenu(); 
     void profile(); 
     void backpack(); 
     void credits(); 
