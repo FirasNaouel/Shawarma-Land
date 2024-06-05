@@ -21,4 +21,5 @@ public:
     void profile(); 
     void backpack(); 
     void credits(); 
+    void battle();
 };
