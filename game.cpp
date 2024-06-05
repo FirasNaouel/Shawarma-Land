@@ -84,36 +84,52 @@ void Game::backpack() {
     cout << endl << " - Enter 1 to change swords" << endl;
     cout << " - Enter the corresponding integer of the sword" << endl;
     cout << endl << "Swords:" << endl;
-    for (int i = 0; i < Player::getBackpackSize(); i++) {
-        if (p->getItem(i) != nullptr) {
-            if (p->getItem(i)->getUnlocked()) {
+    for (int i = 0; i < Player::getSwordSize(); i++) {
+        if (p->getSword(i) != nullptr) {
+            if (p->getSword(i)->getUnlocked()) {
                 numUnlocked++;
-                if (p->getItem(i) == p->getItemEquipped()) {
-                    cout << endl << i << " - " << p->getItem(i)->getName() << " (Equipped)" << endl;
-                    cout << "   Emoji: " << p->getItem(i)->getEmoji() << endl;
-                    cout << "   Damage: " << p->getItem(i)->getDamage() << endl;
-                    cout << "   Hit Rate: " << p->getItem(i)->getHitRate()*100 << endl;
+                if (p->getSword(i) == p->getSwordEquipped()) {
+                    cout << endl << i << " - " << Program::white() << p->getSword(i)->getName() << Program::colourOFF() << Program::cyan() << " (Equipped)" << Program::colourOFF() << endl;
+                    cout << "   Emoji: " << p->getSword(i)->getEmoji() << endl;
+                    cout << "   Damage: " << Program::red() << p->getSword(i)->getDamage() << Program::colourOFF() << endl;
+                    cout << "   Hit Rate: " << p->getSword(i)->getHitRate()*100 << endl;
                 } else {
-                    cout << endl << i << " - " << p->getItem(i)->getName() << endl;
-                    cout << "   Emoji: " << p->getItem(i)->getEmoji() << endl;
-                    cout << "   Damage: " << p->getItem(i)->getDamage() << endl;
-                    cout << "   Hit Rate: " << p->getItem(i)->getHitRate()*100 << endl;
+                    cout << endl << i << " - " << Program::white() << p->getSword(i)->getName() << Program::colourOFF() << endl;
+                    cout << "   Emoji: " << p->getSword(i)->getEmoji() << endl;
+                    cout << "   Damage: " << Program::red() << p->getSword(i)->getDamage() << Program::colourOFF() << endl;
+                    cout << "   Hit Rate: " << p->getSword(i)->getHitRate()*100 << endl;
                 }
             }
         }
     }
+    cout << endl << "Potions:" << endl;
+    for (int i = 0; i < Player::getPotionSize(); i++) {
+        if (p->getPotion(i) != nullptr) {
+            if (p->getPotion(i)->getQuantity() != 0) {
+                cout << endl << i << " - " << Program::white() << p->getPotion(i)->getName() << Program::colourOFF() << endl;
+                cout << "   Emoji: " << p->getPotion(i)->getEmoji() << endl;
+                cout << "   Heal: " << Program::green() << p->getPotion(i)->getHeal() << Program::colourOFF() << endl;
+                cout << "   Hit Rate: " << p->getPotion(i)->getHitRate()*100 << endl;
+                cout << "   Quantity: " << p->getPotion(i)->getQuantity() << endl;
+            }
+        }
+    }
     cout << endl;
-    switch (Program::question(0, 1)) {
+    switch (Program::question(0, 2)) {
         case 0:
             menu();
             break;
         case 1:
             if (numUnlocked != -1) {
                 cout << "Enter integer corresponding to sword" << endl;
-                p->setItemEquipped((p->getItem(Program::question(0, numUnlocked))));
+                p->setSwordEquipped((p->getSword(Program::question(0, numUnlocked))));
             } else {
                 cout << "No unlocked swords available!" << endl;
             }
+            backpack();
+            break;
+        case 2:
+            p->heal(Program::question(0, 2));
             backpack();
             break;
     }
