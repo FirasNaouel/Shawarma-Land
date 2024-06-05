@@ -1,4 +1,5 @@
 #include "game.h"
+#pragma once
 
 class Room {
 private:
