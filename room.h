@@ -1,5 +1,7 @@
-#include "game.h"
+#include <iostream>
 #pragma once
+
+using namespace std;
 
 class Room {
 private:
