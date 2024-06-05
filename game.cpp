@@ -136,12 +136,10 @@ void Game::battle(){
 
     cout << "Welcome to the Hot and Cold Game!" << endl;
     cout << "Your goal is to find the hidden item on the grid." << endl;
+    Program::enterContinue();
 
     while (true) {
-        room.printGrid();
-        room.makeMove();
-        
-        currentDistance = room.findDistance();
+        Program::clearScreen();
         if (room.checkWin()) {
             cout << "Congratulations! You've found the item!" << endl;
             break;
@@ -149,6 +147,11 @@ void Game::battle(){
             cout << "You are getting " << Room::hotCold(currentDistance, previousDistance) << "." << endl;
             previousDistance = currentDistance;
         }
+        room.printGrid();
+        room.makeMove();
+        
+        currentDistance = room.findDistance();
+        
     }
 }
 
