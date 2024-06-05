@@ -59,6 +59,7 @@ void Game::menu() {
             backpack();
             break;
         case 3:
+            battle();
             break;
         case 4:
             credits();
@@ -145,4 +146,27 @@ void Game::credits() {
     cout << endl;
     Program::question(0, 0);
     menu();
+}
+
+void Game::battle(){
+    Room room;
+    int previousDistance = room.findDistance();
+    int currentDistance;
+
+    cout << "Welcome to the Hot and Cold Game!" << endl;
+    cout << "Your goal is to find the hidden item on the grid." << endl;
+
+    while (true) {
+        room.printGrid();
+        room.makeMove();
+        
+        currentDistance = room.findDistance();
+        if (room.checkWin()) {
+            cout << "Congratulations! You've found the item!" << endl;
+            break;
+        } else {
+            cout << "You are getting " << Room::hotCold(currentDistance, previousDistance) << "." << endl;
+            previousDistance = currentDistance;
+        }
+    }
 }
