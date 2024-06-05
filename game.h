@@ -16,7 +16,6 @@ public:
     void startGame();
     void intro();
     void intro(Player& p);
-    void tutorial();
     void menu(); 
     void profile(); 
     void backpack(); 

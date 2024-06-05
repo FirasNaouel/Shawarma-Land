@@ -19,8 +19,7 @@ Game::~Game() {
 void Game::startGame() {
     intro();
     intro(*p);
-    tutorial();
-    menu();
+    displayMenu();
 }
 
 void Game::intro() {
@@ -37,20 +36,14 @@ void Game::intro(Player& p) {
     Program::enterContinue();
 }
 
-void Game::tutorial() {
-    cout << "-- Menu Navigation Tutorial --" << endl;
-    cout << endl << " - Enter the corresponding integer of the menu option" << endl;
-    cout << " - Enter 0 to return to menu" << endl;
-    Program::enterContinue();
-}
-
-void Game::menu() {
+void Game::displayMenu() {
     Program::clearScreen();
     cout << Program::white() + "=== " +  Program::colourOFF() + Program::yellow() + "Shawarma Land" + Program::colourOFF() + Program::white() + " ===" +  Program::colourOFF() << endl;
     cout << endl << "1 - " + Program::white() + "Profile" +  Program::colourOFF() << endl;
     cout << endl << "2 - " + Program::white() + "Backpack" +  Program::colourOFF() << endl;
     cout << endl << "3 - " + Program::white() + "Battle" +  Program::colourOFF() << endl;
     cout << endl << "4 - " + Program::white() + "Credits" +  Program::colourOFF() << endl << endl;
+    cout << "Note: Enter the corresponding integer of the menu options to access it" << endl << endl;
     switch (Program::question(1, 4)) {
         case 1:
             profile();
@@ -72,9 +65,9 @@ void Game::profile() {
     cout << Program::white() + "=== " +  Program::colourOFF() + Program::yellow() + "Character Profile" + Program::colourOFF() + Program::white() + " ===" +  Program::colourOFF() << endl;
     cout << endl;
     p->playerInfo();
-    cout << endl;
+    cout << endl << "Note: Enter '0' to return to menu" << endl << endl;
     Program::question(0, 0);
-    menu();
+    displayMenu();
 }
 
 void Game::backpack() {
@@ -82,8 +75,8 @@ void Game::backpack() {
     Program::clearScreen();
     cout << Program::white() + "=== " +  Program::colourOFF() + Program::yellow() + "Backpack" + Program::colourOFF() + Program::white() + " ===" +  Program::colourOFF() << endl;
     cout << endl << "-- Backpack Navigation Tutorial --" << endl;
-    cout << endl << " - Enter 1 to change swords" << endl;
-    cout << " - Enter the corresponding integer of the sword" << endl;
+    cout << endl << " - Enter '1' to change swords" << endl;
+    cout << " - Enter '0' to return to menu" << endl;
     cout << endl << "Swords:" << endl;
     for (int i = 0; i < Player::getSwordSize(); i++) {
         if (p->getSword(i) != nullptr) {
@@ -118,7 +111,7 @@ void Game::backpack() {
     cout << endl;
     switch (Program::question(0, 2)) {
         case 0:
-            menu();
+            displayMenu();
             break;
         case 1:
             if (numUnlocked != -1) {
@@ -134,18 +127,6 @@ void Game::backpack() {
             backpack();
             break;
     }
-}
-
-void Game::credits() {
-    Program::clearScreen();
-    cout << Program::white() + "=== " +  Program::colourOFF() + Program::yellow() + "Credits" + Program::colourOFF() + Program::white() + " ===" +  Program::colourOFF() << endl;
-    cout << endl << "Abdualhakim Aldabibi - Creator" << endl;
-    cout << endl << "Firas Naouel - Founder" << endl;
-    cout << endl << "Tom Yu (A.K.A Xiucheng) - Skill Issue Consultant" << endl;
-    cout << endl << "Ms. Kutschke - 4++ Consultant" << endl;
-    cout << endl;
-    Program::question(0, 0);
-    menu();
 }
 
 void Game::battle(){
@@ -169,4 +150,16 @@ void Game::battle(){
             previousDistance = currentDistance;
         }
     }
+}
+
+void Game::credits() {
+    Program::clearScreen();
+    cout << Program::white() + "=== " +  Program::colourOFF() + Program::yellow() + "Credits" + Program::colourOFF() + Program::white() + " ===" +  Program::colourOFF() << endl;
+    cout << endl << "Abdualhakim Aldabibi - Creator" << endl;
+    cout << endl << "Firas Naouel - Founder" << endl;
+    cout << endl << "Tom Yu (A.K.A Xiucheng) - Skill Issue Consultant" << endl;
+    cout << endl << "Ms. Kutschke - 4++ Consultant" << endl;
+    cout << endl << "Note: Enter '0' to return to menu" << endl << endl;
+    Program::question(0, 0);
+    displayMenu();
 }
