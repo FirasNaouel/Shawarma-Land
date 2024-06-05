@@ -8,11 +8,15 @@ Player::Player() : COA() {
     health = 1;
     speed = 2;
     strength = 3;
-    items[0] = new Sword();
-    items[1] = new Sword("Shawarmaster Blade", 30, 0.8, true);
-    items[2] = new Sword("Hummus Havoc", 28, 0.9, false);
-    items[3] = new Sword("Kebab Kutter", 35, 0.75, false);
-    itemEquipped = items[0];
+    swords[0] = new Sword();
+    swords[1] = new Sword("Shawarmaster Blade", 30, 0.8, true);
+    swords[2] = new Sword("Hummus Havoc", 28, 0.9, false);
+    swords[3] = new Sword("Kebab Kutter", 35, 0.75, false);
+    swords[3] = new Sword("4++ Smacker", 999, 0.1, false);
+    potions[0] = new Potion();
+    potions[1] = new Potion("Inferno Infusion Shawarma Sizzle", 40, 0.7, 2);
+    potions[2] = new Potion("buykscbuysrg", 50, 0.7, 0);
+    swordEquipped = swords[0];
 }
 
 void Player::customize(bool c) {
@@ -34,25 +38,41 @@ void Player::playerInfo() {
     cout << "Health: " << Program::green() << health << " HP" << Program::colourOFF() << endl;
     cout << "Speed: " << Program::cyan() << speed << " SP" << Program::colourOFF() << endl;
     cout << "Strength: " << Program::red() << strength << " ATK" << Program::colourOFF() << endl;
-    cout << "Sword: " << Program::white() << itemEquipped->getName() << Program::colourOFF() << endl;
+    cout << "Sword: " << Program::white() << swordEquipped->getName() << Program::colourOFF() << endl;
 }
 
-Item* Player::getItem(int index) {
+Sword* Player::getSword(int index) {
     if (index >= 0 && index < 2) {
-        return items[index];
+        return swords[index];
     } else {
         return nullptr;
     }
 }
 
-Item* Player::getItemEquipped() {
-    return itemEquipped;
+Potion* Player::getPotion(int index) {
+    if (index >= 0 && index < 2) {
+        return potions[index];
+    } else {
+        return nullptr;
+    }
 }
 
-void Player::setItemEquipped(Item* newItem) {
-    itemEquipped = newItem;
+Sword* Player::getSwordEquipped() {
+    return swordEquipped;
 }
 
-int Player::getBackpackSize() {
-    return backpackSize;
+void Player::setSwordEquipped(Sword* newItem) {
+    swordEquipped = newItem;
+}
+
+int Player::getSwordSize() {
+    return swordSize;
+}
+
+int Player::getPotionSize() {
+    return potionSize;
+}
+
+void Player::heal(int i) {
+    health += potions[i]->usePotion();
 }
