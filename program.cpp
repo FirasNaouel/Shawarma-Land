@@ -63,7 +63,9 @@ string Program::colourOFF() {
 }
 
 void Program::clearScreen() {
-    system("clear");
+    // system("clear"); //for online GDB
+
+    cout << "\033c"; //for replit
 }
 
 void Program::enterContinue() {
@@ -72,7 +74,7 @@ void Program::enterContinue() {
     clearScreen();
 }
 
-void alpha(string items[], int length, int start, int mid, int end) {
+void merge(string items[], int length, int start, int mid, int end) {
     string temp[length];
     int pos1 = start;
     int pos2 = mid + 1;
@@ -95,11 +97,11 @@ void alpha(string items[], int length, int start, int mid, int end) {
 }
 
 
-void alphaSort(string items[], int start, int end, int length) {
+void mergeSort(string items[], int start, int end, int length) {
     if (start < end) {
         int mid = (start + end) / 2;
-        alphaSort(items, start, mid, length);
-        alphaSort(items, mid + 1, end, length);
-        alpha(items, length, start, mid, end);
+        mergeSort(items, start, mid, length);
+        mergeSort(items, mid + 1, end, length);
+        merge(items, length, start, mid, end);
     }
 }
