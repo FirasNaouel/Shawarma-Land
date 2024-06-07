@@ -4,6 +4,9 @@ using namespace std;
 COA::COA() {
     
 }
+COA::~COA(){
+    
+}
 
 string COA::getName() {
     return name;
