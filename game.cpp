@@ -2,13 +2,7 @@
 using namespace std;
 
 Game::Game() {
-    string s;
-    ifstream file("story.txt");
-    while (getline (file, s)) {
-      // Output the text from the file
-      cout << s;
-    }
-    file.close();
+    printTxt();
 
     name = "Shawarma Land";
     p = new Player();
@@ -18,6 +12,21 @@ Game::~Game() {
     delete p;
 }
 
+void Game::printTxt(){
+    cout << "In the bustling streets of Shawarma Land, where savory aromas waft through the air, an epic" << endl
+        << "culinary adventure awaits. Players step into the shoes of Zara, a fearless food enthusiast on a" << endl
+        << "quest to uncover the secret recipe of the legendary Shawarma Master." << endl << endl
+        << "Armed with only her trusty spatula and insatiable appetite, Zara traverses through vibrant" << endl
+        << "markets, mysterious alleyways, and bustling kitchens, encountering a colorful cast of characters" << endl
+        << "along the way. From quirky spice merchants to rival chefs, each encounter brings new challenges" << endl
+        << "and delicious discoveries." << endl << endl
+        << "But the journey is perilous, as Zara must navigate through spicy traps, culinary puzzles, and" << endl
+        << "savory showdowns to reach the ultimate prize – the fabled Shawarma Master's recipe hidden" << endl
+        << "deep within the heart of Shawarma Land." << endl << endl
+        << "Will Zara emerge victorious and claim the title of Shawarma Champion? Only those with a hunger" << endl
+        << "for adventure and a zest for flavor can uncover the secrets that lie within Shawarma Land." << endl;
+}
+
 void Game::startGame() {
     intro();
     intro(*p);
@@ -25,7 +34,6 @@ void Game::startGame() {
 }
 
 void Game::intro() {
-    Program::clearScreen();
     cout << story << endl;
     cout << endl << "Welcome to " << Program::white() << name << Program::colourOFF() << endl;
     Program::enterContinue();
@@ -33,7 +41,6 @@ void Game::intro() {
 
 void Game::intro(Player& p) {
     p.customize(Program::question("Would you like to forge your destiny? (y/n): ", 'y', 'n'));
-    Program::clearScreen();
     p.playerInfo();
     Program::enterContinue();
 }
