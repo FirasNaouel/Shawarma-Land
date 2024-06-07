@@ -1,4 +1,6 @@
 #include "room.h"
+#include <termios.h>
+#define STDIN_FILENO 0
 
 
 Room::Room() {
@@ -31,35 +33,71 @@ int Room::findDistance() const{
     return distance;
 }
 
-void Room::makeMove() {
-    char move;
-    cout << "Enter your move (W for up, A for left, S for down, D for right): ";
-    cin >> move;
+void Room::makeMove(int i) {
+    
 
-    // Update player's position
-    switch (move) {
-        case 'W':
-        case 'w':
-          if (player.y > 0)
-              player.y--;
-        break;
-        case 'A':
-        case 'a':
-          if (player.x > 0)
-              player.x--;
-        break;
-        case 'S':
-        case 's':
-          if (player.y < SIZE - 1)
-              player.y++;
-        break;
-        case 'D':
-        case 'd':
-          if (player.x < SIZE - 1)
-              player.x++;
-        break;
-        default:
-            cout << "Invalid move! Please try again.\n";
+    if(i == 0){
+        char move;
+        cout << "Enter your move (W for up, A for left, S for down, D for right): ";
+        cin >> move;
+        // Update player's position
+        switch (move) {
+            case 'W':
+            case 'w':
+              if (player.y > 0)
+                  player.y--;
+            break;
+            case 'A':
+            case 'a':
+              if (player.x > 0)
+                  player.x--;
+            break;
+            case 'S':
+            case 's':
+              if (player.y < SIZE - 1)
+                  player.y++;
+            break;
+            case 'D':
+            case 'd':
+              if (player.x < SIZE - 1)
+                  player.x++;
+            break;
+            default:
+                cout << "Invalid move! Please try again.\n";
+        }
+    }
+
+    else {
+        // Black magic to prevent Linux from buffering keystrokes.
+        struct termios t;
+        tcgetattr(STDIN_FILENO, &t);
+        t.c_lflag &= ~ICANON;
+        tcsetattr(STDIN_FILENO, TCSANOW, &t);
+
+        cout << "Enter your move (use arrow keys): ";
+        char c,d,e;
+        cin >> c;
+        cin >> d;
+        cin >> e;
+        // Using 3 char type, Cause up down right left consist with 3 character
+        if ((c==27)&&(d==91)) {
+            if (e==65) { 
+                if (player.y > 0)
+                    player.y--;
+            }
+            if (e==66) {
+                if (player.y < SIZE - 1)
+                      player.y++;
+            }
+            if (e==67) {
+                if (player.x < SIZE - 1)
+                      player.x++;
+            }
+            if (e==68) {
+                if (player.x > 0)
+                      player.x--;
+            }
+        }
     }
 }
 
