@@ -12,6 +12,7 @@ private:
 public:
     Game();
     ~Game();
+    void printTxt();
     void startGame();
     void intro();
     void intro(Player& p);
