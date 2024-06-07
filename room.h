@@ -30,7 +30,7 @@ public:
 
     int findDistance() const;
 
-    void makeMove();
+    void makeMove(int);
 
     bool checkWin() const;
 
