@@ -14,6 +14,6 @@ class Program {
     static string colourOFF();
     static void clearScreen();
     static void enterContinue();
-    static void alpha(string, int, int, int, int);
-    static void alphaSort(string, int, int, int);
+    static void merge(string, int, int, int, int);
+    static void mergeSort(string, int, int, int);
 };
