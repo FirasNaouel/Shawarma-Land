@@ -12,6 +12,7 @@ protected:
 public:
     COA();
     COA(string, string, int, int, int);
+    virtual ~COA();
     virtual string getName();
     virtual int getHealth();
     virtual int getSpeed();
