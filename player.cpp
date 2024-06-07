@@ -19,6 +19,10 @@ Player::Player() : COA() {
     swordEquipped = swords[0];
 }
 
+Player::~Player(){
+    
+}
+
 void Player::customize(bool c) {
     if (c) {
         cout << "Enter your character's name: ";
