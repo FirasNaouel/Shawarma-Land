@@ -37,6 +37,14 @@ void Room::makeMove(int i) {
     
 
     if(i == 0){
+
+        // Black magic to prevent Linux from buffering keystrokes. Also insta key registration without need to click enter
+        struct termios t;
+        tcgetattr(STDIN_FILENO, &t);
+        t.c_lflag &= ~ICANON;
+        tcsetattr(STDIN_FILENO, TCSANOW, &t);
+
+        
         char move;
         cout << "Enter your move (W for up, A for left, S for down, D for right): ";
         cin >> move;
@@ -64,11 +72,13 @@ void Room::makeMove(int i) {
             break;
             default:
                 cout << "Invalid move! Please try again.\n";
+
+        
         }
     }
 
     else {
-        // Black magic to prevent Linux from buffering keystrokes.
+        // Black magic to prevent Linux from buffering keystrokes.  Also insta key registration without need to click enter
         struct termios t;
         tcgetattr(STDIN_FILENO, &t);
         t.c_lflag &= ~ICANON;
