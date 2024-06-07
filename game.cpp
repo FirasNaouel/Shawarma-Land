@@ -2,13 +2,15 @@
 using namespace std;
 
 Game::Game() {
-    fstream file("story.txt", ios::in);
-    stringstream buffer;
-    buffer << file.rdbuf();
+    string s;
+    ifstream file("story.txt");
+    while (getline (file, s)) {
+      // Output the text from the file
+      cout << s;
+    }
     file.close();
 
     name = "Shawarma Land";
-    story = buffer.str();
     p = new Player();
 }
 
@@ -76,6 +78,7 @@ void Game::backpack() {
     cout << Program::white() + "=== " +  Program::colourOFF() + Program::yellow() + "Backpack" + Program::colourOFF() + Program::white() + " ===" +  Program::colourOFF() << endl;
     cout << endl << "-- Backpack Navigation Tutorial --" << endl;
     cout << endl << " - Enter '1' to change swords" << endl;
+    cout << " - Enter '2' to use a potion" << endl;
     cout << " - Enter '0' to return to menu" << endl;
     cout << endl << "Swords:" << endl;
     for (int i = 0; i < Player::getSwordSize(); i++) {
@@ -130,29 +133,37 @@ void Game::backpack() {
 }
 
 void Game::battle(){
+    Program::clearScreen();
     Room room;
     int previousDistance = room.findDistance();
     int currentDistance;
+    int movementChoice = 0;
 
     cout << "Welcome to the Hot and Cold Game!" << endl;
     cout << "Your goal is to find the hidden item on the grid." << endl;
+    cout << "Would you like to play using text keys(0) of arrow keys(1): ";
+    do{
+        cin >> movementChoice;
+    } while(movementChoice != 0 && movementChoice != 1);
     Program::enterContinue();
 
     while (true) {
         Program::clearScreen();
         if (room.checkWin()) {
             cout << "Congratulations! You've found the item!" << endl;
+            Program::enterContinue();
             break;
         } else {
             cout << "You are getting " << Room::hotCold(currentDistance, previousDistance) << "." << endl;
             previousDistance = currentDistance;
         }
         room.printGrid();
-        room.makeMove();
+        room.makeMove(movementChoice);
         
         currentDistance = room.findDistance();
         
     }
+    displayMenu();
 }
 
 void Game::credits() {
