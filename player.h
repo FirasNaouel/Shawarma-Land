@@ -17,6 +17,7 @@ class Player : public COA {
     Potion* potions[potionSize];
     public:
     Player();
+    ~Player();
     void customize(bool);
     void playerInfo();
     Sword* getSword(int);
