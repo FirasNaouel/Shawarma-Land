@@ -2,6 +2,16 @@
 using namespace std;
 
 Game::Game() {
+
+    //old code that does not work on replit but works on onlineGDB
+    // fstream file("story.txt", ios::in);
+    // stringstream buffer;
+    // buffer << file.rdbuf();
+    // file.close();
+
+    // name = "Shawarma Land";
+    // story = buffer.str();
+    // p = new Player();
     printTxt();
 
     name = "Shawarma Land";
@@ -41,6 +51,7 @@ void Game::intro() {
 
 void Game::intro(Player& p) {
     p.customize(Program::question("Would you like to forge your destiny? (y/n): ", 'y', 'n'));
+    Program::clearScreen();
     p.playerInfo();
     Program::enterContinue();
 }
@@ -86,6 +97,7 @@ void Game::backpack() {
     cout << endl << "-- Backpack Navigation Tutorial --" << endl;
     cout << endl << " - Enter '1' to change swords" << endl;
     cout << " - Enter '2' to use a potion" << endl;
+    cout << " - Enter '3' to get the highest damage dealing sword" << endl;
     cout << " - Enter '0' to return to menu" << endl;
     cout << endl << "Swords:" << endl;
     for (int i = 0; i < Player::getSwordSize(); i++) {
@@ -119,7 +131,7 @@ void Game::backpack() {
         }
     }
     cout << endl;
-    switch (Program::question(0, 2)) {
+    switch (Program::question(0, 3)) {
         case 0:
             displayMenu();
             break;
@@ -136,6 +148,12 @@ void Game::backpack() {
             p->heal(Program::question(0, 2));
             backpack();
             break;
+
+        case 3:
+            cout << "The strongest sword you currntly own is the " << Program::cyan() << p->highDamage().getName() << Program::colourOFF();
+            Program::enterContinue();
+            backpack();
+            break;
     }
 }
 
@@ -148,16 +166,21 @@ void Game::battle(){
 
     cout << "Welcome to the Hot and Cold Game!" << endl;
     cout << "Your goal is to find the hidden item on the grid." << endl;
-    cout << "Would you like to play using text keys(0) of arrow keys(1): ";
+    cout << "Would you like to play using text keys(0) or arrow keys(1): ";
     do{
         cin >> movementChoice;
+        cout << "Invalid Input! (choose 0 or 1)" << endl;
+        cout << "Would you like to play using text keys(0) of arrow keys(1): ";
     } while(movementChoice != 0 && movementChoice != 1);
     Program::enterContinue();
 
     while (true) {
         Program::clearScreen();
         if (room.checkWin()) {
-            cout << "Congratulations! You've found the item!" << endl;
+            cout << "Congratulations! You've found the item! Proceed to your backpack to see what new powers you wield" << endl;
+            p->getSword(unlockable)->setUnlocked(true);
+            p->addList(unlockable);
+            unlockable++;
             Program::enterContinue();
             break;
         } else {
