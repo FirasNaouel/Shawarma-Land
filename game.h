@@ -9,7 +9,8 @@ private:
     string name;
     string story;
     Player* p;
-public:
+    int unlockable = 2;
+public:    
     Game();
     ~Game();
     void printTxt();
