@@ -2,6 +2,8 @@
 using namespace std;
 
 // COA does not stand for "Canadian Orthopaedic Association," but rather "Clumps of Atoms."
+// COA represents a Character Object in a game, encapsulating attributes like name, health, speed, strength, and emoji representation.
+// It provides methods for accessing and modifying these attributes.
 class COA {
 protected:
     string name;
