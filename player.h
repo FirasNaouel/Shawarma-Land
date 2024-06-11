@@ -15,6 +15,7 @@ class Player : public COA {
     Sword* swords[swordSize];
     Sword* swordEquipped;
     Potion* potions[potionSize];
+    vector<Sword*> list;
     public:
     Player();
     ~Player();
@@ -27,4 +28,8 @@ class Player : public COA {
     static int getSwordSize();
     static int getPotionSize();
     void heal(int);
+    void addList(int);
+    void merge(Sword[], int, int, int);
+    void mergeSort(Sword[], int, int);
+    Sword highDamage();
 };
